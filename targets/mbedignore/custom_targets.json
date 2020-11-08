@@ -4,12 +4,12 @@
             "MCU_STM32F1"
         ],
         "public": false,
+        "extra_labels_remove": [
+            "STM"
+        ],
         "extra_labels_add": [
             "USER_STM",
             "STM32F103xE"
-        ],
-        "extra_labels_remove": [
-            "STM"
         ],
         "macros_add": [
             "STM32F103xE"
@@ -33,14 +33,31 @@
             "FLASHIAP"
         ],
         "device_name": "STM32F103VE",
+        "c_lib": "std",
         "bootloader_supported": true
     },
-	"JD3423_F103VE": {
-		"inherits": [
-            "WS3423_F103VE"
-        ]
-	},
-	"WS4423_F429ZI": {
+    "JD3423_F103VE": {
+        "inherits": [
+            "MCU_STM32F103xE"
+        ],
+        "overrides": {
+            "lse_available": 0
+        },
+        "supported_form_factors": [
+            "ARDUINO",
+            "MORPHO"
+        ],
+        "detect_code": [
+            "0701"
+        ],
+        "components_add": [
+            "FLASHIAP"
+        ],
+        "device_name": "STM32F103VE",
+        "c_lib": "std",
+        "bootloader_supported": true
+    },
+    "WS4423_F429ZI": {
 		"inherits": [
             "NUCLEO_F429ZI"
         ]
