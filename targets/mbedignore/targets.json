@@ -1329,7 +1329,7 @@
         ],
         "device_name": "STM32F103RB"
     },
-	"MCU_STM32F103xE": {
+    "MCU_STM32F103xE": {
         "inherits": [
             "MCU_STM32F1"
         ],
@@ -1365,6 +1365,29 @@
         "device_name": "STM32F103VE",
         "bootloader_supported": true
     },
+	"JD3423_F103VE": {
+		"inherits": [
+            "WS3423_F103VE"
+        ]
+	},
+	"WS4423_F429ZI": {
+		"inherits": [
+            "NUCLEO_F429ZI"
+        ]
+	},
+	"MB1137_F429ZI": {
+		"inherits": [
+            "NUCLEO_F429ZI"
+        ]
+	},
+	"MR8848_PRO_F411RE": {
+		"inherits": [
+            "NUCLEO_F411RE"
+        ],
+		"overrides": {
+            "lse_available": 0
+        }
+	},
     "MCU_STM32F2": {
         "inherits": [
             "MCU_STM32"
