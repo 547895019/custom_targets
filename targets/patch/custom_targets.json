@@ -15,6 +15,91 @@
             "STM32F103xE"
         ]
     },
+	"MCU_AT32F4": {
+        "inherits": [
+            "MCU_STM32"
+        ],
+        "public": false,
+        "c_lib": "small",
+        "core": "Cortex-M3",
+		"OUTPUT_EXT": "hex",
+        "extra_labels_add": [
+            "AT32F4"
+        ],
+        "config": {
+            "clock_source": {
+                "help": "Mask value : USE_PLL_HSE_EXTC | USE_PLL_HSE_XTAL | USE_PLL_HSI",
+                "value": "USE_PLL_HSE_EXTC|USE_PLL_HSE_XTAL|USE_PLL_HSI",
+                "macro_name": "CLOCK_SOURCE"
+            }
+        },
+        "device_has_add": [
+            "CAN",
+            "SERIAL_ASYNCH",
+            "FLASH"
+        ],
+        "device_has_remove": [
+            "LPTICKER"
+        ]
+    },
+	"MCU_AT32F403A": {
+        "inherits": [
+            "MCU_AT32F4"
+        ],
+        "public": false,
+        "extra_labels_remove": [
+            "STM"
+        ],
+        "extra_labels_add": [
+            "AT",
+            "AT32F403A"
+        ],
+        "macros_add": [
+            "STM32F103xE"
+        ]
+    },
+	"WS3423_AT32F403A": {
+        "inherits": [
+            "MCU_AT32F403A"
+        ],
+        "overrides": {
+            "lse_available": 0
+        },
+        "supported_form_factors": [
+            "ARDUINO",
+            "MORPHO"
+        ],
+        "detect_code": [
+            "0701"
+        ],
+        "components_add": [
+            "FLASHIAP"
+        ],
+        "device_name": "STM32F103VE",
+        "c_lib": "std",
+        "bootloader_supported": true
+    },
+	"JD3423_AT32F403A": {
+        "inherits": [
+            "MCU_AT32F403A"
+        ],
+        "overrides": {
+            "lse_available": 0
+        },
+        "supported_form_factors": [
+            "ARDUINO",
+            "MORPHO"
+        ],
+        "detect_code": [
+            "0701"
+        ],
+        "components_add": [
+            "FLASHIAP"
+        ],
+        "device_name": "STM32F103VE",
+        "c_lib": "std",
+        "bootloader_supported": true
+    },
     "WS3423_F103VE": {
         "inherits": [
             "MCU_STM32F103xE"
@@ -58,9 +143,47 @@
         "bootloader_supported": true
     },
     "WS4423_F429ZI": {
-		"inherits": [
-            "NUCLEO_F429ZI"
-        ]
+        "inherits": [
+            "MCU_STM32F4"
+        ],
+        "supported_form_factors": [
+            "ARDUINO"
+        ],
+        "config": {
+            "d11_configuration": {
+                "help": "Value: PA_7 for the default board configuration, PB_5 in case of solder bridge update (SB121 off/ SB122 on)",
+                "value": "PA_7",
+                "macro_name": "STM32_D11_SPI_ETHERNET_PIN"
+            },
+            "usb_speed": {
+                "help": "USE_USB_OTG_FS or USE_USB_OTG_HS or USE_USB_HS_IN_FS",
+                "value": "USE_USB_OTG_FS"
+            }
+        },
+        "features_add": [
+            "PSA"
+        ],
+        "extra_labels_add": [
+            "STM32F429xI",
+            "MBED_PSA_SRV"
+        ],
+        "macros_add": [
+            "STM32F429xx"
+        ],
+        "device_has_add": [
+            "ANALOGOUT",
+            "CAN",
+            "EMAC",
+            "TRNG",
+            "USBDEVICE"
+        ],
+        "detect_code": [
+            "0796"
+        ],
+        "device_name": "STM32F429ZI",
+        "overrides": {
+            "network-default-interface-type": "ETHERNET"
+        }
 	},
 	"MB1137_F429ZI": {
 		"inherits": [
